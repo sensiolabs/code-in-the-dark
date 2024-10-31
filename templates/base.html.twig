@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sensio TV+ {% block title '' %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% block navbar %}
+        {{ include('includes/_navbar.html.twig', {current: app.request.attributes.get('_route')}, with_context = false) }}
+    {% endblock %}
+    {% block header %}
+    {% endblock %}
+</header>
+<div class="row">
+    <aside class="col-2"></aside>
+    <main class="container pt-5 col-8">
+        {% block body %}{% endblock %}
+    </main>
+    <aside class="col-2">
+    </aside>
+</div>
+<footer class="p-5"></footer>
+</body>
+</html>
